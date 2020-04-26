@@ -1,0 +1,28 @@
+###
+GET http://{{URL}}/
+
+<> 2020-04-26T080809.200.json
+
+###
+POST http://{{URL}}/
+Content-Type: application/json
+
+{
+  "name": "test",
+  "description": "test"
+}
+
+###
+GET http://{{URL}}/{{id}}
+
+###
+GET http://{{URL}}/?page=0&size=2
+
+###
+GET http://{{URL}}/?description=testd
+
+###
+GET http://{{URL}}/getAllStartsWithB
+
+###
+GET http://{{URL}}/getAllStartsWithA
