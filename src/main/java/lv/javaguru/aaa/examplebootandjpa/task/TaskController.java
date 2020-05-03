@@ -2,11 +2,12 @@ package lv.javaguru.aaa.examplebootandjpa.task;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/tasks")
+@RestController
 public class TaskController {
     private static final Logger log = LoggerFactory.getLogger(TaskController.class);
 
@@ -53,9 +54,14 @@ public class TaskController {
     }
 
     @PostMapping("/")
-    public Task saveTask(@RequestBody Task task) {
+    public Task saveTask(@RequestBody @Validated Task task) {
         log.info("Request saveTask with " + task);
         return taskService.save(task);
+    }
+
+    @GetMapping("/mySuperCustomError")
+    public void getError(){
+        throw new TaskException("GET: mySuperCustomError");
     }
 
 }

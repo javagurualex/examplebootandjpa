@@ -44,4 +44,8 @@ public class TaskService {
     public List<Task> getDescStartWithA() {
         return taskRepository.findAllByDescStartWithA();
     }
+
+    public List<Task> findTaskByName(String name) {
+        return taskRepository.findByName(name);
+    }
 }

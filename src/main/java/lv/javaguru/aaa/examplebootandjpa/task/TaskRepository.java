@@ -18,8 +18,9 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     @Query("select u from Task u where u.name = :name or u.description = :desc")
     Task findByNameOrDescription(@Param("name") String name,
-                                   @Param("desc") String description);
+                                 @Param("desc") String description);
 
+    List<Task> findByName(String name);
 }
 
 

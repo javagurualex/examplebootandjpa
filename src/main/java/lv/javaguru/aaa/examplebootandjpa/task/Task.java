@@ -1,6 +1,7 @@
 package lv.javaguru.aaa.examplebootandjpa.task;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQuery(
@@ -10,12 +11,22 @@ import javax.persistence.*;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+//    @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private String description;
+
+    public Task() {}
+
+    public Task(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
